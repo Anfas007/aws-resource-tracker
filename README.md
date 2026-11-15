@@ -13,6 +13,17 @@ This project automates resource auditing in a decoupled, zero-cost local lab usi
 - `alert.py` — Reads `aws_report.csv` (with `FileNotFoundError` handling) and publishes a summary alert to an AWS SNS topic.
 - `main.py` — Orchestrates the end-to-end scan, report generation, and notification pipeline.
 
+## 📸 Screenshot
+  <img width="484" height="164" alt="terminal_output" src="https://github.com/user-attachments/assets/a24db3be-60a1-4bfd-aed8-212ebf5491db" />
+
+
+## 🚀 Future Enhancements
+- **Scheduled Execution:** Trigger `main.py` automatically on a daily schedule using Linux `cron`, AWS EventBridge, or GitHub Actions.
+- **Tag-Based Auto-Remediation:** Filter EC2 instances by `Environment=Dev` tags and automatically stop idle servers outside working hours to reduce cloud spend.
+- **ChatOps Integration:** Forward alert summaries directly to a team Slack or Discord channel using incoming webhooks.
+- **Multi-Region Scanning:** Expand `tracker.py` to loop through multiple AWS regions instead of scanning a single region.
+
+
 ## ⚡ Quick Start
 ```bash
 # 1. Create and activate a virtual environment
@@ -24,10 +35,3 @@ pip install -r requirements.txt
 
 # 3. Run the full pipeline
 python main.py
-
-
-## 🚀 Future Enhancements
-- **Scheduled Execution:** Trigger `main.py` automatically on a daily schedule using Linux `cron`, AWS EventBridge, or GitHub Actions.
-- **Tag-Based Auto-Remediation:** Filter EC2 instances by `Environment=Dev` tags and automatically stop idle servers outside working hours to reduce cloud spend.
-- **ChatOps Integration:** Forward alert summaries directly to a team Slack or Discord channel using incoming webhooks.
-- **Multi-Region Scanning:** Expand `tracker.py` to loop through multiple AWS regions instead of scanning a single region.
